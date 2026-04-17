@@ -1,4 +1,5 @@
-﻿@{
+﻿@model WebApp.Models.Proyectores
+@{
     ViewData["Title"] = "Inicio";
 }
 
@@ -6,12 +7,12 @@
 
     <div class="text-start">
          <h1 class="display-4">Información de proyectores</h1>
-         <h2 class="display-6">Proyectores #@ViewBag.Id</h2>
-         <p>Marca: @ViewBag.Marca</p>
-         <p>Modelo: @ViewBag.Modelo</p>
-         <p>Número de serie: @ViewBag.NumeroDeSerie</p>
-         <p>Situacion: @ViewBag.Situacion</p>
-         <p>Fecha de alta: @ViewBag.FechaDeAlta</p>
+         <h2 class="display-6">Proyectores #@Model.Id</h2>
+         <p>Marca: @Model.Marca</p>
+         <p>Modelo: @Model.Modelo</p>
+         <p>Número de serie: @Model.NumeroDeSerie</p>
+         <p>Situacion: @Model.situacion</p>
+         <p>Fecha de alta: @Model.FechaDeAlta.ToString("d")</p>
     </div>
 </div>
 
