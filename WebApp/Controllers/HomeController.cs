@@ -8,6 +8,13 @@ namespace WebApp.Controllers
     {
         public IActionResult Index()
         {
+            // Uso de ViewData para pasar datos a la vista
+                ViewData["Id"] = 1;
+                ViewData["Marca"] = "Epson";
+                ViewData["Modelo"] = "XLight";
+                ViewData["NumeroDeSerie"] = 123456;
+                ViewData["Situacion"] = "Bueno";
+                ViewData["FechaDeAlta"] = DateTime.Now.ToString();
             return View();
         }
 
