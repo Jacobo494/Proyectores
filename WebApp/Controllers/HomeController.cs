@@ -8,6 +8,7 @@ namespace WebApp.Controllers
     {
         public IActionResult Index()
         {
+
             // Uso de ViewData / ViewBag / modelo de la vista
 
             //ViewData["Id"] = 1;
@@ -24,7 +25,27 @@ namespace WebApp.Controllers
             //ViewBag.Situacion = "Bueno";
             //ViewBag.FechaDeAlta = DateTime.Now.ToString("d");
 
-            Proyectores proyector = new Proyectores()
+            //Proyectores proyector = new Proyectores()
+            //{
+            //    Id = 1,
+            //    Marca = "Epson",
+            //    Modelo = "XLight",
+            //    NumeroDeSerie = "123456",
+            //    situacion = SituacionProyector.Bueno,
+            //    FechaDeAlta = DateTime.Now
+            //};
+
+            var modelo = LoadData();
+            //var modelo = new List<Proyectores>();
+
+            return View(modelo);
+        }
+
+        private IEnumerable<Proyectores> LoadData()
+        { 
+        var proyectores = new List<Proyectores>();
+
+            proyectores.Add(new Proyectores()
             {
                 Id = 1,
                 Marca = "Epson",
@@ -32,10 +53,46 @@ namespace WebApp.Controllers
                 NumeroDeSerie = "123456",
                 situacion = SituacionProyector.Bueno,
                 FechaDeAlta = DateTime.Now
-            };
+            });
+            proyectores.Add(new Proyectores()
+            {
+                Id = 2,
+                Marca = "LG",
+                Modelo = "XLig574",
+                NumeroDeSerie = "123788",
+                situacion = SituacionProyector.Bueno,
+                FechaDeAlta = DateTime.Now
+            });
+            proyectores.Add(new Proyectores()
+            {
+                Id = 3,
+                Marca = "Sony",
+                Modelo = "VPL-XW5000",
+                NumeroDeSerie = "123999",
+                situacion = SituacionProyector.Regular,
+                FechaDeAlta = DateTime.Now
+            });
+            proyectores.Add(new Proyectores()
+            {
+                Id = 4,
+                Marca = "Samsung",
+                Modelo = "XLig874",
+                NumeroDeSerie = "15789",
+                situacion = SituacionProyector.Malo,
+                FechaDeAlta = DateTime.Now
+            });
+            proyectores.Add(new Proyectores()
+            {
+                Id = 5,
+                Marca = "Panasonic",
+                Modelo = "X4874",
+                NumeroDeSerie = "178921",
+                situacion = SituacionProyector.Bueno,
+                FechaDeAlta = DateTime.Now
+            });
 
-           
-            return View(proyector);
+
+            return proyectores;
         }
 
         public IActionResult Privacy()
