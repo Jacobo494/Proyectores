@@ -51,7 +51,7 @@ namespace WebApp.Controllers
                 Marca = "Epson",
                 Modelo = "XLight",
                 NumeroDeSerie = "123456",
-                situacion = SituacionProyector.Bueno,
+                Situacion = SituacionProyector.Bueno,
                 FechaDeAlta = DateTime.Now
             });
             proyectores.Add(new Proyectores()
@@ -60,7 +60,7 @@ namespace WebApp.Controllers
                 Marca = "LG",
                 Modelo = "XLig574",
                 NumeroDeSerie = "123788",
-                situacion = SituacionProyector.Bueno,
+                Situacion = SituacionProyector.Bueno,
                 FechaDeAlta = DateTime.Now
             });
             proyectores.Add(new Proyectores()
@@ -69,7 +69,7 @@ namespace WebApp.Controllers
                 Marca = "Sony",
                 Modelo = "VPL-XW5000",
                 NumeroDeSerie = "123999",
-                situacion = SituacionProyector.Regular,
+                Situacion = SituacionProyector.Regular,
                 FechaDeAlta = DateTime.Now
             });
             proyectores.Add(new Proyectores()
@@ -78,7 +78,7 @@ namespace WebApp.Controllers
                 Marca = "Samsung",
                 Modelo = "XLig874",
                 NumeroDeSerie = "15789",
-                situacion = SituacionProyector.Malo,
+                Situacion = SituacionProyector.Malo,
                 FechaDeAlta = DateTime.Now
             });
             proyectores.Add(new Proyectores()
@@ -87,13 +87,22 @@ namespace WebApp.Controllers
                 Marca = "Panasonic",
                 Modelo = "X4874",
                 NumeroDeSerie = "178921",
-                situacion = SituacionProyector.Bueno,
+                Situacion = SituacionProyector.Bueno,
                 FechaDeAlta = DateTime.Now
             });
 
 
             return proyectores;
         }
+
+        public IActionResult Create()
+        {
+            return View();
+        }
+
+
+
+
 
         public IActionResult Privacy()
         {
