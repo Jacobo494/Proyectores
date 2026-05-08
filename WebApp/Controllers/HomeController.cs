@@ -33,8 +33,15 @@ namespace WebApp.Controllers
         [HttpPost]
         public IActionResult Create(Proyectores proyector)
         {
-            _service.AddProyector(proyector);
-            return RedirectToAction(nameof(Index));
+            if(!ModelState.IsValid)
+            {
+                return View(proyector);
+            }
+            else
+            {
+                _service.AddProyector(proyector);
+                return RedirectToAction(nameof(Index));
+            }
         }
 
         public IActionResult Privacy()
