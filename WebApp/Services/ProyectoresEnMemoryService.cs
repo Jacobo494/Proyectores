@@ -3,7 +3,7 @@
 namespace WebApp.Services
 {
 
-    public class ProyectoresEnMemoryService : IProyectoresService
+    public class ProyectoresEnMemoryService : IproyectoresService
     {
         private static List<Proyectores> _proyectores = LoadData();
 
@@ -73,6 +73,26 @@ namespace WebApp.Services
 
             return proyectores;
 
+        }
+
+        public IEnumerable<Proyectores> GetProyectores()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void AddProyectores(Proyectores proyectores)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Update(Proyectores proyectores)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Delete(int id)
+        {
+            throw new NotImplementedException();
         }
     }
 }

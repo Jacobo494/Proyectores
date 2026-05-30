@@ -2,21 +2,22 @@ using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 using WebApp.Models;
 using WebApp.Services;
+using WebApp.ViewModels;
 
 namespace WebApp.Controllers
 {
     public class HomeController : Controller
         
     {
-        private IProyectoresService _service;
-        public HomeController()
+        private IproyectoresService _service;
+        public HomeController(IproyectoresService service)
         {
-            _service = new ProyectoresEnMemoryService();
+            _service = service;
         }
         public IActionResult Index()
         {
 
-            var modelo = _service.GetAll();
+            var modelo = _service.GetProyectores();
             return View(modelo);
         }
 
@@ -24,10 +25,9 @@ namespace WebApp.Controllers
 
         public IActionResult Create()
         {
-            Proyectores proyector = new Proyectores();
-            proyector.FechaDeAlta = DateTime.Now;
-            return View(proyector);
-
+            var modelo = new HomeCreateViewModel();
+            modelo.FechDeAlta = DateTime.Now;
+            return View(modelo);
         }
 
         [HttpPost]
@@ -39,15 +39,12 @@ namespace WebApp.Controllers
             }
             else
             {
-                _service.AddProyector(proyector);
+                _service.AddProyectores(proyector);
                 return RedirectToAction(nameof(Index));
             }
         }
 
-        public IActionResult Privacy()
-        {
-            return View();
-        }
+ 
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
